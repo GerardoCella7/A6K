@@ -17,7 +17,7 @@ class CreateInvoicesTable extends Migration
             $table->id();
             $table->dateTime("date_emit");
             $table->boolean("paid_status")->default(0);
-            $table->integer('booking_id')->unsigned();
+            $table->bigInteger('booking_id')->unsigned();
             $table->foreign('booking_id')
                     ->references('id')->on('bookings')
                     ->onDelete('cascade');

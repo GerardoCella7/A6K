@@ -16,7 +16,7 @@ class CreatePictureRoomsTable extends Migration
         Schema::create('picture_rooms', function (Blueprint $table) {
             $table->id();
             $table->string("url");
-            $table->integer('room_id')->unsigned();
+            $table->bigInteger('room_id')->unsigned();
             $table->foreign('room_id')
                     ->references('id')->on('rooms')
                     ->onDelete('cascade');

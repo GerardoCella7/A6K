@@ -19,7 +19,7 @@ class CreateMaterialsTable extends Migration
             $table->string('description');
             $table->integer('price')->unsigned();
             $table->integer('quantity')->unsigned();
-            $table->integer('material_type_id')->unsigned();
+            $table->bigInteger('material_type_id')->unsigned();
             $table->foreign('material_type_id')
                     ->references('id')->on('material_types')
                     ->onDelete('cascade');

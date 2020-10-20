@@ -16,11 +16,11 @@ class CreateMaterialsBasesTable extends Migration
         Schema::create('materials_bases', function (Blueprint $table) {
             $table->id();
             $table->smallInteger("quantity");
-            $table->integer('room_id')->unsigned();
+            $table->bigInteger('room_id')->unsigned();
             $table->foreign('room_id')
                   ->references('id')->on('rooms')
                   ->onDelete('cascade');
-            $table->integer('material_id')->unsigned();
+            $table->bigInteger('material_id')->unsigned();
             $table->foreign('material_id')
                   ->references('id')->on('materials')
                   ->onDelete('cascade');

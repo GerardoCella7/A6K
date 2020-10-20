@@ -16,7 +16,7 @@ class CreatePicturesMaterialsTable extends Migration
         Schema::create('pictures_materials', function (Blueprint $table) {
             $table->id();
             $table->string("url");
-            $table->integer('material_id')->unsigned();
+            $table->bigInteger('material_id')->unsigned();
             $table->foreign('material_id')
                   ->references('id')->on('materials')
                   ->onDelete('cascade');

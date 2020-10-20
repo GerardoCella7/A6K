@@ -17,11 +17,11 @@ class CreateMaterialsOptionsTable extends Migration
             $table->id();
             $table->smallInteger("quantity");
             $table->integer("price");
-            $table->integer('material_id')->unsigned();
+            $table->bigInteger('material_id')->unsigned();
             $table->foreign('material_id')
                   ->references('id')->on('materials')
                   ->onDelete('cascade');
-            $table->integer('booking_id')->unsigned();      
+            $table->bigInteger('booking_id')->unsigned();      
             $table->foreign('booking_id')
                   ->references('id')->on('bookings')
                   ->onDelete('cascade');

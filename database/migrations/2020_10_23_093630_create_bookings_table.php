@@ -20,11 +20,11 @@ class CreateBookingsTable extends Migration
             $table->integer("price")->unsigned();
             $table->boolean("cancel_status")->default(0);
             $table->boolean("validation_status")->default(0);
-            $table->integer('client_id')->unsigned();
+            $table->bigInteger('client_id')->unsigned();
             $table->foreign('client_id')
                     ->references('id')->on('clients')
                     ->onDelete('cascade');
-            $table->integer('room_id')->unsigned();
+            $table->bigInteger('room_id')->unsigned();
             $table->foreign('room_id')
                     ->references('id')->on('rooms')
                     ->onDelete('cascade');
