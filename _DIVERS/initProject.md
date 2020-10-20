@@ -16,6 +16,7 @@
     - `npm run dev`
 4. Copy file `.env.example` and rename is `.env`
 5. Modify the file `.env` so that it contains your DB connection information.
-6. Make the command :
-    - `php artisan migration`
+6. Create database `a6kproject` to charset `utf8_unicode_ci`
+7. Make the command :
+    - `php artisan migrate`
     - `php artisan serve`
