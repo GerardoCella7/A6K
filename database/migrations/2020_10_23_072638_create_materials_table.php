@@ -21,7 +21,7 @@ class CreateMaterialsTable extends Migration
             $table->integer('quantity')->unsigned();
             $table->integer('material_type_id')->unsigned();
             $table->foreign('material_type_id')
-                    ->references('id')->on('material_types')
+                    ->references('id')->on('material_type')
                     ->onDelete('cascade');
             $table->timestamps();
         });
