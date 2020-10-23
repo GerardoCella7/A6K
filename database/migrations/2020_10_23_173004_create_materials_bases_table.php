@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePictureRoomsTable extends Migration
+class CreateMaterialsBasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,17 @@ class CreatePictureRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('picture_rooms', function (Blueprint $table) {
+        Schema::create('materials_bases', function (Blueprint $table) {
             $table->id();
-            $table->string("url");
+            $table->smallInteger("quantity");
             $table->integer('room_id')->unsigned();
             $table->foreign('room_id')
-                    ->references('id')->on('rooms')
-                    ->onDelete('cascade');
+                  ->references('id')->on('rooms')
+                  ->onDelete('cascade');
+            $table->integer('material_id')->unsigned();
+            $table->foreign('material_id')
+                  ->references('id')->on('materials')
+                  ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +35,6 @@ class CreatePictureRoomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('picture_rooms');
+        Schema::dropIfExists('materials_bases');
     }
 }
