@@ -18,8 +18,9 @@
         "laravel/jetstream": "^1.4",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.0",
-        "tightenco/ziggy": "^0.9.4"
+        "tightenco/ziggy": "^0.9.4"   
     },
+
     "require-dev": {
         "facade/ignition": "^2.3.6",
         "fzaninotto/faker": "^1.9.1",
