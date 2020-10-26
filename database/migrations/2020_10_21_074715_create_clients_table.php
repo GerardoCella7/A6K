@@ -18,7 +18,7 @@ class CreateClientsTable extends Migration
             $table->text('lastname', 50);
             $table->text('firstname', 50);
             $table->text('email');
-            $table->text('adress');
+            $table->text('address');
             $table->text('phone', 25);
             $table->text('tva', 25);
             $table->text('company_type', 50);

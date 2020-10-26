@@ -19,4 +19,5 @@
 6. Create database `a6kproject` to charset `utf8_unicode_ci`
 7. Make the command :
     - `php artisan migrate`
+    - `php artisan db:seed` -> For fake data
     - `php artisan serve`
