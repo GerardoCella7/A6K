@@ -1,22 +1,24 @@
 require('./bootstrap');
-window.Vue = require('vue');
 
-import App from './App.vue';
-import VueRouter from 'vue-router';
-import VueAxios from 'vue-axios';
-import axios from 'axios';
-import {routes} from './routes';
+import Vue from 'vue';
 
-Vue.use(VueRouter);
-Vue.use(VueAxios, axios);
+import { InertiaApp } from '@inertiajs/inertia-vue';
+import { InertiaForm } from 'laravel-jetstream';
+import PortalVue from 'portal-vue';
 
-const router = new VueRouter({
-    mode: 'history',
-    routes: routes
-});
+Vue.mixin({ methods: { route } });
+Vue.use(InertiaApp);
+Vue.use(InertiaForm);
+Vue.use(PortalVue);
 
-const app = new Vue({
-    el: '#app',
-    router: router,
-    render: h => h(App),
-});
+const app = document.getElementById('app');
+
+new Vue({
+    render: (h) =>
+        h(InertiaApp, {
+            props: {
+                initialPage: JSON.parse(app.dataset.page),
+                resolveComponent: (name) => require(`./Pages/${name}`).default,
+            },
+        }),
+}).$mount(app);
