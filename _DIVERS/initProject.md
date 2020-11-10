@@ -10,13 +10,13 @@
 
 1. Clone the repository
 2. Move in the folder for project
-3. Make the command :
+3. Execute the command :
     - `composer install`
     - `npm install`
     - `npm run dev`
 4. Copy file `.env.example` and rename is `.env`
-5. Modify the file `.env` so that it contains your DB connection information.
+5. Modify the file `.env` so that it contains your DB credentials information.
 6. Create database `a6kproject` to charset `utf8_unicode_ci`
-7. Make the command :
+7. Execute the command :
     - `php artisan migrate`
     - `php artisan serve`
