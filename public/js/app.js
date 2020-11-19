@@ -40991,8 +40991,14 @@ var map = {
 	"./API/ApiTokenManager.vue": "./resources/js/Pages/API/ApiTokenManager.vue",
 	"./API/Index": "./resources/js/Pages/API/Index.vue",
 	"./API/Index.vue": "./resources/js/Pages/API/Index.vue",
+	"./Booking/Index": "./resources/js/Pages/Booking/Index.vue",
+	"./Booking/Index.vue": "./resources/js/Pages/Booking/Index.vue",
+	"./Client/Index": "./resources/js/Pages/Client/Index.vue",
+	"./Client/Index.vue": "./resources/js/Pages/Client/Index.vue",
 	"./Dashboard": "./resources/js/Pages/Dashboard.vue",
 	"./Dashboard.vue": "./resources/js/Pages/Dashboard.vue",
+	"./Material/Index": "./resources/js/Pages/Material/Index.vue",
+	"./Material/Index.vue": "./resources/js/Pages/Material/Index.vue",
 	"./Profile/DeleteUserForm": "./resources/js/Pages/Profile/DeleteUserForm.vue",
 	"./Profile/DeleteUserForm.vue": "./resources/js/Pages/Profile/DeleteUserForm.vue",
 	"./Profile/LogoutOtherBrowserSessionsForm": "./resources/js/Pages/Profile/LogoutOtherBrowserSessionsForm.vue",
@@ -41004,7 +41010,9 @@ var map = {
 	"./Profile/UpdatePasswordForm": "./resources/js/Pages/Profile/UpdatePasswordForm.vue",
 	"./Profile/UpdatePasswordForm.vue": "./resources/js/Pages/Profile/UpdatePasswordForm.vue",
 	"./Profile/UpdateProfileInformationForm": "./resources/js/Pages/Profile/UpdateProfileInformationForm.vue",
-	"./Profile/UpdateProfileInformationForm.vue": "./resources/js/Pages/Profile/UpdateProfileInformationForm.vue"
+	"./Profile/UpdateProfileInformationForm.vue": "./resources/js/Pages/Profile/UpdateProfileInformationForm.vue",
+	"./Room/Index": "./resources/js/Pages/Room/Index.vue",
+	"./Room/Index.vue": "./resources/js/Pages/Room/Index.vue"
 };
 
 
@@ -41167,6 +41175,28 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Booking/Index.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/Pages/Booking/Index.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/vue-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'C:\\Users\\Hp\\BeCode\\github\\A6K-V2\\resources\\js\\Pages\\Booking\\Index.vue'");
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Client/Index.vue":
+/*!*********************************************!*\
+  !*** ./resources/js/Pages/Client/Index.vue ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/vue-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'C:\\Users\\Hp\\BeCode\\github\\A6K-V2\\resources\\js\\Pages\\Client\\Index.vue'");
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Dashboard.vue":
 /*!******************************************!*\
   !*** ./resources/js/Pages/Dashboard.vue ***!
@@ -41233,6 +41263,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_template_id_097ba13b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Material/Index.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/Pages/Material/Index.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/vue-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'C:\\Users\\Hp\\BeCode\\github\\A6K-V2\\resources\\js\\Pages\\Material\\Index.vue'");
 
 /***/ }),
 
@@ -41647,6 +41688,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateProfileInformationForm_vue_vue_type_template_id_f38ebb82___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Room/Index.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/Pages/Room/Index.vue ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/vue-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'C:\\Users\\Hp\\BeCode\\github\\A6K-V2\\resources\\js\\Pages\\Room\\Index.vue'");
 
 /***/ }),
 
