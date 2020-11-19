@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +22,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia\Inertia::render('Dashboard');
-})->name('dashboard');
+
+Route::group(['auth:sanctum', 'verified'], function (){
+
+    Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
+    Route::get('/client', [ClientController::class, 'index'])->name('client.index');
+    Route::get('/material', [MaterialController::class, 'index'])->name('material.index');
+    Route::get('/room', [RoomController::class, 'index'])->name('room.index');
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+
+});
