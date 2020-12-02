@@ -10,7 +10,7 @@ class ClientController extends Controller
 {
     public function index() {
         // Chargement de la liste des clients
-        $data = Client::all();
+        $data = Client::orderBy('lastname')->get()->load('booking');
 
         // Affichage de la vue
         return Inertia::render('Client/Index',[
@@ -20,7 +20,7 @@ class ClientController extends Controller
 
     public function details($id) {
         // Chargement de la liste des clients
-        $data = Client::find($id);
+        $data = Client::find($id)->load('booking');
 
         // Affichage de la vue
         return Inertia::render('Client/Details',[

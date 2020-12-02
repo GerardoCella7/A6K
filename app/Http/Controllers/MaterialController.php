@@ -17,4 +17,14 @@ class MaterialController extends Controller
             'data' => $data
         ]);
     }
+
+    public function details($id) {
+        // Chargement de la liste de materiel, du type et la liste d'images
+        $data = Material::find($id)->load('materialType')->load('pictures');
+
+        // Affichage de la vue
+        return Inertia::render('Material/Details',[
+            'data' => $data
+        ]);
+    }
 }

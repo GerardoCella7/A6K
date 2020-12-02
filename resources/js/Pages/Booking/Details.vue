@@ -10,21 +10,27 @@
                 </a>
             </h3>
             <p>{{format(this.booking.start, this.booking.end)}}</p>
-            <!-- TODO : ajouter route pour voir le detail de la salle -->
-            <p class="mt-4 text-xl">Salle <b>{{this.booking.room.name}}</b> au prix de <i>{{this.booking.price/100}} €</i></p>
+            <p class="mt-4 text-xl">Salle <b><a :href="route('room.details', this.booking.room.id)">{{this.booking.room.name}}</a></b> au prix de <i>{{this.booking.price/100}} €</i></p>
             
             <div class="ml-4">
-                <h4 class="text-2xl">Liste du materiel par defaut:</h4>
+                <h4 class="text-2xl">Liste du materiel par defaut</h4>
                 <ul class="ml-8 list-disc">
-                    <!-- TODO : ajouter route pour voir le detail du materiel -->
-                    <li v-for="material in this.booking.room.materials_basis" v-bind:key="material.id">{{material.material.quantity}} {{material.material.name}}</li>
+                    <li v-for="material in this.booking.room.materials_basis" v-bind:key="material.id">
+                        {{material.material.quantity}} <a :href="route('material.details', material.material.id)">{{material.material.name}}</a>
+                    </li>
                 </ul>
 
-                <h4 class="text-2xl">Liste du materiel en options:</h4>
-                <ul class="ml-8 list-disc">
-                    <!-- TODO : ajouter route pour voir le detail du materiel -->
-                    <li v-for="material in this.booking.material_options" v-bind:key="material.id">{{material.quantity}} {{material.material.name}} ({{material.price / 100}} €)</li>
-                </ul>
+                <div v-if="this.booking.material_options.length > 0">
+                    <h4 class="text-2xl">Liste du materiel en options</h4>
+                    <ul class="ml-8 list-disc">
+                        <li v-for="material in this.booking.material_options" v-bind:key="material.id">
+                            {{material.quantity}} <a :href="route('material.details', material.material.id)">{{material.material.name}}</a> ({{material.price / 100}} €)
+                        </li>
+                    </ul>
+                </div>
+                <div v-else>
+                    <h4 class="text-2xl">Pas de materiel en options</h4>
+                </div>
             </div>
             <div class="mt-6 text-2xl text-blue-500">
                 TOTAL : {{total(this.booking)}} €

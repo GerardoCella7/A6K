@@ -3,11 +3,11 @@
         <template #header>
             Liste des clients
         </template>
-        <div class="py-3 px-2" v-for="client in this.clientsList" v-bind:key="client.id">
-            <div>
-                {{client.firstname}} {{client.lastname}} - ({{client.address}})
-            </div>
-            <hr/>
+        <div class="px-4 py-1" v-for="client in this.clientsList" v-bind:key="client.id">
+            <a :href="route('client.details', client.id)" class="text-xl">
+                {{client.firstname}} {{client.lastname}}
+            </a>
+            ({{client.booking.length}} Résérvation)
         </div>
     </app-layout>
 </template>

@@ -32,8 +32,10 @@ Route::group(['auth:sanctum', 'verified'], function (){
     Route::get('/client/{id}', [ClientController::class, 'details'])->name('client.details');
 
     Route::get('/material', [MaterialController::class, 'index'])->name('material.index');
+    Route::get('/material/{id}', [MaterialController::class, 'details'])->name('material.details');
 
     Route::get('/room', [RoomController::class, 'index'])->name('room.index');
+    Route::get('/room/{id}', [RoomController::class, 'details'])->name('room.details');
     
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');

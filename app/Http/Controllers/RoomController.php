@@ -17,4 +17,14 @@ class RoomController extends Controller
             'data' => $data
         ]);
     }
+
+    public function details($id){
+        // Chargement de la salle et de la liste du materiel de base
+        $data = Room::find($id)->load('pictures')->load('materialsBasis');
+    
+        // Affichage de la vue
+        return Inertia::render('Room/Details',[
+            'data' => $data
+        ]);
+    }
 }
