@@ -26,6 +26,7 @@ Route::get('/', function () {
 Route::group(['auth:sanctum', 'verified'], function (){
 
     Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
+    Route::get('/booking/{id}', [BookingController::class, 'details'])->name('booking.details');
 
     Route::get('/client', [ClientController::class, 'index'])->name('client.index');
     Route::get('/client/{id}', [ClientController::class, 'details'])->name('client.details');

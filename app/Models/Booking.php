@@ -16,6 +16,10 @@ class Booking extends Model
 
     // Récupération de la salle associée
     public function room(){
-        return $this->belongsTo(Room::class);
+        return $this->belongsTo(Room::class)->with('materialsBasis');
+    }
+
+    public function materialOptions(){
+        return $this->hasMany(MaterialsOption::class)->with('material');
     }
 }

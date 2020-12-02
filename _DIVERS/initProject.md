@@ -20,4 +20,8 @@
 7. Make the command :
     - `php artisan migrate`
     - `php artisan db:seed` -> For fake data
-    - `php artisan serve`
+
+# Work to the project :
+
+- `php artisan serve` -> Run server
+- `npm run watch` -> Update Vue in real time
