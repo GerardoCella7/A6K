@@ -26,11 +26,15 @@ Route::get('/', function () {
 Route::group(['auth:sanctum', 'verified'], function (){
 
     Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
+
     Route::get('/client', [ClientController::class, 'index'])->name('client.index');
+    Route::get('/client/{id}', [ClientController::class, 'details'])->name('client.details');
+
     Route::get('/material', [MaterialController::class, 'index'])->name('material.index');
+
     Route::get('/room', [RoomController::class, 'index'])->name('room.index');
+    
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
-
 });

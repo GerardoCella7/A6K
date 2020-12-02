@@ -9,10 +9,10 @@ use Inertia\Inertia;
 class MaterialController extends Controller
 {
     public function index() {
-        $data = Material::all()->map(function ($item){
-            return $item->getData();
-        });
+        // Chargement de la liste de materiel, du type et la liste d'images
+        $data = Material::all()->load('materialType')->load('pictures');
 
+        // Affichage de la vue
         return Inertia::render('Material/Index',[
             'data' => $data
         ]);
