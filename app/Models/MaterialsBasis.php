@@ -9,11 +9,8 @@ class MaterialsBasis extends Model
 {
     use HasFactory;
 
-    public function getData(){
-        $material = Material::where('id', $this->attributes['material_id'])->get();       
-
-        $this->attributes['material'] = $material;
-        
-        return $this->attributes;
+    // Récupération du materiel associé et de son type
+    public function material(){
+        return $this->belongsTo(Material::class)->with('materialType');
     }
 }

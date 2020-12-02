@@ -5,8 +5,9 @@
         </template>
         <div class="py-3 px-2" v-for="material in this.materialsList" v-bind:key="material.id">
             <div>
-                {{material.name}} -> (type : {{material.materialType.type}})
+                {{material.name}} -> (type : {{material.material_type.type}})
             </div>
+            <img v-for="picture in material.pictures" :src="picture.url" alt="Photo du materiel" :key="picture.id" width="150px"/>  
             <hr/>
         </div>
     </app-layout>

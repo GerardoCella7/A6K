@@ -8,14 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Booking extends Model
 {
     use HasFactory;
-    
-    public function getData(){
-        $client = Client::where('id', $this->attributes['client_id'])->get();
-        $room = Room::where('id', $this->attributes['room_id'])->get();
 
-        $this->attributes['client'] = $client[0]->getAttributes();
-        $this->attributes['room'] = $room[0]->getAttributes();
-        
-        return $this->attributes;
+    // Récupération du client associé
+    public function client(){
+        return $this->belongsTo(Client::class);
+    }
+
+    // Récupération de la salle associée
+    public function room(){
+        return $this->belongsTo(Room::class)->with('materialsBasis');
+    }
+
+    public function materialOptions(){
+        return $this->hasMany(MaterialsOption::class)->with('material');
     }
 }

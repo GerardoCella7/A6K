@@ -9,18 +9,13 @@ class Room extends Model
 {
     use HasFactory;
 
-    public function getData(){
-        $materialBasis = MaterialsBasis::where('room_id', $this->attributes['id'])->get();
-        $pictures = PictureRoom::where('room_id', $this->attributes['id'])->get();
+    // Récupération de la liste de photos de la salle
+    public function pictures(){
+        return $this->hasMany(PictureRoom::class);
+    }
 
-        foreach ($materialBasis as $item) {
-            $material = Material::where('id', $item->material_id)->get();
-            $item['materialInfo'] = $material[0]->getData();
-        }
-
-        $this->attributes['materialBasis'] = $materialBasis;
-        $this->attributes['pictures'] = $pictures;
-        
-        return $this->attributes;
+    // Récupération de la liste du materiel de base
+    public function materialsBasis(){
+        return $this->hasMany(MaterialsBasis::class)->with('material');
     }
 }

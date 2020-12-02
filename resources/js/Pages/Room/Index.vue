@@ -9,8 +9,8 @@
                 <img v-for="picture in room.pictures" :src="picture.url" alt="Photo de la salle" :key="picture.id" width="150px"/>
                 <p>Materiel de base</p>
                 <ul>
-                    <li v-for="material in room.materialBasis" :key="material.id">
-                        {{material.quantity}} {{material.materialInfo.name}}
+                    <li v-for="material in room.materials_basis" :key="material.id">
+                        {{material.quantity}} {{material.material.name}}
                     </li>
                 </ul>
             </div>

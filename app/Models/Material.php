@@ -9,11 +9,13 @@ class Material extends Model
 {
     use HasFactory;
 
-    public function getData(){
-        $type = MaterialType::where('id', $this->attributes['material_type_id'])->get();
+    // Récupération du type associé
+    public function materialType(){
+        return $this->belongsTo(MaterialType::class);
+    }
 
-        $this->attributes['materialType'] = $type[0]->getAttributes();
-        
-        return $this->attributes;
+    // Récupération de la liste de photos
+    public function pictures(){
+        return $this->hasMany(PicturesMaterial::class);
     }
 }
