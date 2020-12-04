@@ -18,7 +18,7 @@ class RoomController extends Controller
         ]);
     }
 
-    public function details($id){
+    public function details(int $id){
         // Chargement de la salle et de la liste du materiel de base
         $data = Room::find($id)->load('pictures')->load('materialsBasis');
     

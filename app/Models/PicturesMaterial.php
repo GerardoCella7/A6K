@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class PicturesMaterial extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['url', 'material_id'];
 }

@@ -32,7 +32,11 @@ Route::group(['auth:sanctum', 'verified'], function (){
     Route::get('/client/{id}', [ClientController::class, 'details'])->name('client.details');
 
     Route::get('/material', [MaterialController::class, 'index'])->name('material.index');
+    Route::get('/material/create', [MaterialController::class, 'create'])->name('material.create');
+    Route::post('/material/create', [MaterialController::class, 'store'])->name('material.store');
+    Route::get('/material/edit/{id}', [MaterialController::class, 'edit'])->name('material.edit');
     Route::get('/material/{id}', [MaterialController::class, 'details'])->name('material.details');
+    Route::patch('/material/{id}', [MaterialController::class, 'update'])->name('material.update');
 
     Route::get('/room', [RoomController::class, 'index'])->name('room.index');
     Route::get('/room/{id}', [RoomController::class, 'details'])->name('room.details');

@@ -19,7 +19,7 @@ class BookingController extends Controller
         ]);
     }
 
-    public function details($id)
+    public function details(int $id)
     {
         // Chargement de la liste des réservation, du client et de la salle liés
         $data = Booking::find($id)->load('client')->load('room')->load('materialOptions');

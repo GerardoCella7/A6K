@@ -9,6 +9,8 @@ class Material extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'description', 'price', 'quantity', 'material_type_id'];
+
     // Récupération du type associé
     public function materialType(){
         return $this->belongsTo(MaterialType::class);

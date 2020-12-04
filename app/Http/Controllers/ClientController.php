@@ -18,7 +18,7 @@ class ClientController extends Controller
         ]);
     }
 
-    public function details($id) {
+    public function details(int $id) {
         // Chargement de la liste des clients
         $data = Client::find($id)->load('booking');
 
