@@ -16,10 +16,6 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 [![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -28,7 +24,7 @@
 <br />
 <p align="center">
   <a href="https://becode.org/fr/">
-    <img src="_DIVERS/img/becode-seal.png" alt="Logo" width="80" height="80">
+    <img src="_DIVERS/img/becode-seal.png" alt="Logo" width="200" height="200">
   </a>
 
   <h3 align="center">BeCode x A6K Project</h3>
@@ -111,13 +107,19 @@ To get a local copy up and running follow these simple example steps.
 
 This is an example of how to list things you need to use the software and how to install them.
 * npm
+
   ```sh
   npm install npm@latest -g
   ```
+* Laravel 8 at https://laravel.com/docs/8.x/installation
+
+* PHP 7 or 8 on global
+
+* Functionnal database (go check your learning path on how-to set-up a DB)
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Be sure to have all the prerequisites !
 2. Clone the repo
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
