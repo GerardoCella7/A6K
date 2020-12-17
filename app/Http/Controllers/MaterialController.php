@@ -7,48 +7,20 @@ use App\Models\MaterialType;
 use App\Models\PicturesMaterial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class MaterialController extends Controller
 {
-    private $imagesFolder = 'images/materials';
-
-    private function getFiles($data){
-        $files = [];
-        foreach($data as $material){
-            $index = 0;
-            foreach($material->getRelations()['pictures'] as $picture){
-                $url = $picture->getAttributes()['url'];
-                if(strpos($url, $this->imagesFolder) === 0){
-                    $full_path = Storage::path($url);
-                    $base64 = base64_encode(Storage::get($url));
-                    $image_data = 'data:'.mime_content_type($full_path) . ';base64,' . $base64;
-                    $files[$material->getAttributes()['id']][$url] = $image_data;
-                }
-            }
-        }
-        return $files;
-    }
-
     public function index() {
         // Chargement de la liste de materiel, du type et la liste d'images
         $data = Material::all()->load('materialType')->load('pictures');
 
         $files = [];
         foreach($data as $material){
-            $index = 0;
-            foreach($material->getRelations()['pictures'] as $picture){
-                $url = $picture->getAttributes()['url'];
-                if(strpos($url, $this->imagesFolder) === 0){
-                    $full_path = Storage::path($url);
-                    $base64 = base64_encode(Storage::get($url));
-                    $image_data = 'data:'.mime_content_type($full_path) . ';base64,' . $base64;
-                    $files[$material->getAttributes()['id']][$url] = $image_data;
-                }
+            foreach($this->getFiles($material, 'materials') as $key => $value){
+                $files[$key] = $value;
             }
         }
-
         // Affichage de la vue
         return Inertia::render('Material/Index',[
             'data' => $data,
@@ -60,16 +32,7 @@ class MaterialController extends Controller
         // Chargement de la liste de materiel, du type et la liste d'images
         $data = Material::find($id)->load('materialType')->load('pictures');
 
-        $files = [];
-        foreach($data->getRelations()['pictures'] as $picture){
-            $url = $picture->getAttributes()['url'];
-            if(strpos($url, $this->imagesFolder) === 0){
-                $full_path = Storage::path($url);
-                $base64 = base64_encode(Storage::get($url));
-                $image_data = 'data:'.mime_content_type($full_path) . ';base64,' . $base64;
-                $files[$url] = $image_data;
-            }
-        }
+        $files = $this->getFiles($data, 'materials');
         
         // Affichage de la vue
         return Inertia::render('Material/Details',[
@@ -109,7 +72,7 @@ class MaterialController extends Controller
             $materialId = $materiel->getAttributes()['id'];
             $fileName = $materialId . '_' . uniqid() . '_' . $i . '.' . $info["files$i"]->extension();
 
-            $url = $info["files$i"]->storePubliclyAs($this->imagesFolder, $fileName);
+            $url = $info["files$i"]->storePubliclyAs($this->imagesFolder . 'materials', $fileName);
 
             $file = [
                 'url' => $url,

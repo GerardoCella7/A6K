@@ -12,9 +12,17 @@ class RoomController extends Controller
         // Chargement de la liste des salles et de leurs materiels de base
         $data = Room::all()->load('pictures')->load('materialsBasis');
     
+        $files = [];
+        foreach($data as $room){
+            foreach($this->getFiles($room, 'rooms') as $key => $value){
+                $files[$key] = $value;
+            }
+        }
+
         // Affichage de la vue
         return Inertia::render('Room/Index',[
-            'data' => $data
+            'data' => $data,
+            'files' => $files
         ]);
     }
 
@@ -22,9 +30,12 @@ class RoomController extends Controller
         // Chargement de la salle et de la liste du materiel de base
         $data = Room::find($id)->load('pictures')->load('materialsBasis');
     
+        $files = $this->getFiles($data, 'rooms');
+
         // Affichage de la vue
         return Inertia::render('Room/Details',[
-            'data' => $data
+            'data' => $data,
+            'files' => $files
         ]);
     }
 }
